@@ -1,0 +1,34 @@
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #f59e42;
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+  --color-warning: #facc15;
+  --color-info: #38bdf8;
+  --border-radius: 0.5rem;
+  --font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+}
+
+/* Universal button style */
+.button {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.button:hover {
+  background: var(--color-secondary);
+}
+
+/* Add more utility classes as needed */
