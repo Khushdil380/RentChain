@@ -1,0 +1,12 @@
+@import '../../styles/theme.css';
+
+.header-tab {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 10px 14px;
+	background: #fff;
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-sm);
+}

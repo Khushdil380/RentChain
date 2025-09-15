@@ -1,0 +1,11 @@
+@import '../../styles/theme.css';
+
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon {
+	width: 36px; height: 36px; border-radius: 50%;
+	background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+	box-shadow: var(--shadow-sm);
+}
+.logo-texts { line-height: 1.1; }
+.logo-title { font-weight: 800; font-size: 18px; color: var(--color-accent); }
+.logo-slogan { font-size: 12px; color: #556; opacity: 0.9; }

@@ -1,0 +1,5 @@
+@import '../../../styles/theme.css';
+
+.sm { display: flex; gap: 10px; }
+.sm-ic { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,0.08); color: #fff; font-weight: 800; box-shadow: var(--shadow-sm); }
+.sm-ic:hover { background: rgba(255,255,255,0.2); }

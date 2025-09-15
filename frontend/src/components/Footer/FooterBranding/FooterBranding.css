@@ -1,0 +1,6 @@
+@import '../../../styles/theme.css';
+
+.f-logo { display: flex; align-items: center; gap: 10px; }
+.f-logo-icon { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); box-shadow: var(--shadow-sm); }
+.f-logo-text { font-weight: 800; color: #fff; }
+.f-tag { margin: 8px 0 0; font-size: 12px; }

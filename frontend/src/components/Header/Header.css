@@ -1,0 +1,26 @@
+@import '../../styles/theme.css';
+
+.header {
+	width: 100%;
+	padding: 16px 0 48px;
+	background: linear-gradient(180deg, var(--color-surface) 0%, #fff 60%);
+}
+
+.hero { margin-top: 28px; text-align: center; }
+
+.hero-title {
+	margin: 0;
+	font-size: 28px;
+	line-height: 1.2;
+	color: var(--color-accent);
+	font-weight: 800;
+}
+
+.hero-subtitle {
+	margin: 8px 0 20px;
+	color: #4a5568;
+}
+
+.hero-center { display: flex; flex-direction: column; gap: 18px; align-items: center; }
+
+.cta-wrap { margin-top: 6px; }

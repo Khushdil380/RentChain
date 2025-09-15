@@ -1,34 +1,35 @@
 :root {
-  --color-primary: #2563eb;
-  --color-secondary: #f59e42;
-  --color-bg: #f9fafb;
-  --color-surface: #ffffff;
-  --color-text: #1e293b;
-  --color-success: #22c55e;
-  --color-error: #ef4444;
-  --color-warning: #facc15;
-  --color-info: #38bdf8;
-  --border-radius: 0.5rem;
-  --font-family: 'Inter', sans-serif;
+  /* Map canonical variable names to provided palette */
+  --color-primary: var(--color-primary-bg, #41229F);
+  --color-secondary: var(--color-secondary-bg, #5885AF);
+  --color-accent: var(--color-tertiary-bg, #274472);
+  --color-surface: var(--color-accent-bg, #C3E0E5);
+  --color-bg: #f7f9fc;
+  --color-text: var(--color-text-black, #111);
+  --color-text-inverse: var(--color-text-white, #fff);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
 }
 
-body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-family);
+/* Utility container */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 16px;
 }
 
-/* Universal button style */
-.button {
-  background: var(--color-primary);
-  color: #fff;
-  border-radius: var(--border-radius);
-  padding: 0.5rem 1.25rem;
-  font-weight: 600;
-  transition: background 0.2s;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 1px, 1px);
+  border: 0;
 }
-.button:hover {
-  background: var(--color-secondary);
-}
-
-/* Add more utility classes as needed */

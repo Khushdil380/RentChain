@@ -1,0 +1,8 @@
+@import '../../styles/theme.css';
+
+.slider { position: relative; width: 80%; max-width: 960px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+.slider-img { width: 100%; height: 280px; object-fit: cover; display: block; }
+.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.45); color: #fff; border: 0; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: grid; place-items: center; }
+.slider-btn.left { left: 10px; }
+.slider-btn.right { right: 10px; }
+.slider-btn:hover { background: rgba(0,0,0,0.6); }
