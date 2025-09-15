@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import Join from './pages/Join';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
+import ResetPassword from './pages/ResetPassword';
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
-    <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
   <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

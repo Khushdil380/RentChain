@@ -6,7 +6,9 @@ import {
   verifyOtp,
   forgotPassword,
   resetPassword,
-  checkUnique
+  checkUnique,
+  me,
+  logout
 } from './auth.controller.js';
 
 const router = Router();
@@ -18,5 +20,7 @@ router.post('/otp/verify', verifyOtp);
 router.post('/forgot', forgotPassword);
 router.post('/reset', resetPassword);
 router.get('/unique', checkUnique); // ?username=&email=&phone=
+router.get('/me', me);
+router.post('/logout', logout);
 
 export default router;

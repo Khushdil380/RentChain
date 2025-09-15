@@ -272,13 +272,37 @@ export const authService = {
     user.otp = await bcrypt.hash(token, 8);
     user.otpExpiresAt = new Date(Date.now() + 60 * 60 * 1000);
     await user.save();
-    const resetLink = `${process.env.APP_ORIGIN || 'http://localhost:3000'}/reset-password?token=${token}&id=${user._id}`;
+    const siteUrl = process.env.APP_ORIGIN || 'http://localhost:3000';
+    const resetLink = `${siteUrl}/reset-password?token=${token}&id=${user._id}`;
+    const brand = '#41229F';
+    const subject = 'Reset your RentChain password';
+    const text = `Hello ${user.fullName?.split(' ')?.[0] || ''},\n\nWe received a request to reset your RentChain password. If you made this request, click the link below to set a new password. This link expires in 60 minutes.\n\n${resetLink}\n\nIf you didn't request this, you can ignore this email.\n\nTeam RentChain`;
+    const html = `
+      <div style="font-family: Inter,Segoe UI,Roboto,Arial,sans-serif; background:#f7f9fc; padding:24px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px; margin:0 auto; background:#ffffff; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.08); overflow:hidden;">
+          <tr>
+            <td style="padding:20px 24px; background:${brand}; color:#fff;"><h1 style="margin:0; font-size:20px;">RentChain</h1></td>
+          </tr>
+          <tr>
+            <td style="padding:24px; color:#111;">
+              <p style="margin:0 0 10px; font-size:16px;">Hi ${user.fullName?.split(' ')?.[0] || ''},</p>
+              <p style="margin:0 0 16px; line-height:1.6;">We received a request to reset your RentChain password. Click the button below to set a new password. This link expires in <strong>60 minutes</strong>.</p>
+              <p style="margin:0 0 18px;"><a href="${resetLink}" style="display:inline-block; background:${brand}; color:#fff; text-decoration:none; padding:10px 14px; border-radius:8px;">Reset your password</a></p>
+              <p style="margin:0 0 8px; color:#555;">If the button doesn't work, copy and paste this URL into your browser:</p>
+              <p style="margin:0 0 16px; word-break:break-all;"><a href="${resetLink}" style="color:${brand}; text-decoration:none;">${resetLink}</a></p>
+              <hr style="border:none; border-top:1px solid #eee; margin:20px 0;"/>
+              <p style="margin:0; color:#555;">If you didn't request this, you can safely ignore this email.</p>
+            </td>
+          </tr>
+        </table>
+      </div>`;
     const mailer = await getMailer();
     await mailer.sendMail({
       from: process.env.CONTACT_FROM || process.env.SMTP_USER || 'no-reply@example.com',
       to: user.email || process.env.CONTACT_TO,
-      subject: 'Reset your password',
-      text: `Click to reset your password: ${resetLink}`,
+      subject,
+      text,
+      html,
     });
   },
 
