@@ -1,0 +1,5 @@
+@import '../../../styles/theme.css';
+
+.csm-row { display: flex; gap: 10px; margin-top: 10px; }
+.csm { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: rgba(88,133,175,0.2); color: var(--color-accent); font-weight: 800; box-shadow: var(--shadow-sm); }
+.csm:hover { background: rgba(88,133,175,0.35); }

@@ -1,12 +1,11 @@
 import React from 'react';
 import PageLayout from './_layout/PageLayout';
+import ContactSection from '../components/Contact/Contact';
 
-const Contact = () => (
+const ContactPage = () => (
   <PageLayout title="Contact">
-    <div style={{ padding: 16, background: '#fff', borderRadius: '12px', boxShadow: 'var(--shadow-sm)' }}>
-      Contact form/content
-    </div>
+    <ContactSection />
   </PageLayout>
 );
 
-export default Contact;
+export default ContactPage;

@@ -1,0 +1,11 @@
+@import '../../../styles/theme.css';
+
+.c-title { margin: 0 0 12px; color: var(--color-accent); font-weight: 800; }
+.c-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.c-field { display: grid; gap: 6px; font-size: 14px; }
+.c-field input, .c-field textarea { padding: 10px 12px; border-radius: 10px; border: 1px solid #e2e8f0; outline: none; }
+.c-field input:focus, .c-field textarea:focus { border-color: var(--color-secondary); box-shadow: 0 0 0 3px rgba(88,133,175,0.2); }
+.c-actions { margin-top: 10px; }
+.c-btn { padding: 10px 16px; border-radius: 10px; border: 0; font-weight: 800; color: #fff; cursor: pointer; background: linear-gradient(90deg, var(--color-primary), var(--color-secondary)); box-shadow: var(--shadow-sm); }
+.c-btn:hover { filter: brightness(1.03); }
+@media (max-width: 900px) { .c-grid { grid-template-columns: 1fr; } }

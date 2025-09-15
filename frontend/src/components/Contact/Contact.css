@@ -1,0 +1,11 @@
+@import '../../styles/theme.css';
+
+.contact { display: grid; gap: 16px; }
+.contact-alert { padding: 10px 12px; border-radius: 10px; font-weight: 700; }
+.contact-alert.ok { background: #ecfdf5; color: #065f46; }
+.contact-alert.err { background: #fef2f2; color: #991b1b; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-col { background: #fff; border-radius: 12px; box-shadow: var(--shadow-sm); padding: 16px; }
+.contact-map { background: #fff; border-radius: 12px; box-shadow: var(--shadow-sm); padding: 6px; }
+
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }

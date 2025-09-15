@@ -1,5 +1,6 @@
 
 import app from './app.js';
+import nodemailer from "nodemailer";
 
 const PORT = process.env.PORT || 5001;
 
