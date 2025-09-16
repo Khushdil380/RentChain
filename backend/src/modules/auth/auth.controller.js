@@ -46,8 +46,8 @@ export async function requestOtp(req, res) {
 
 export async function verifyOtp(req, res) {
   try {
-    await authService.verifyOtp(req.body);
-    return res.json({ ok: true, message: 'OTP verified' });
+    const result = await authService.verifyOtp(req.body);
+    return res.json({ ok: true, message: 'OTP verified', requiresLogin: !!result?.requiresLogin });
   } catch (e) {
     return res.status(400).json({ ok: false, error: e.message || 'OTP verify failed' });
   }

@@ -24,7 +24,7 @@ const Dashboard = () => {
     <PageLayout title="Dashboard">
       <div style={{ padding: 16, background: '#fff', borderRadius: 12, boxShadow: 'var(--shadow-sm)' }}>
         <h2 style={{ marginTop: 0 }}>Welcome to your dashboard</h2>
-        {error && <p style={{ color: 'crimson' }}>{error}</p>}
+  {error && <p style={{ color: 'crimson' }}>{error} — please log in again.</p>}
         {user ? (
           <>
             <p>Logged in as <strong>{user.fullName || user.username || user.email}</strong></p>

@@ -41,8 +41,13 @@ export default function LoginForm({ onSwitch }) {
   const res = await fetch(`${api}/api/auth/otp/verify`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ identifier, otp }) });
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || 'OTP verification failed');
-  setMsg({ ok: true, text: 'OTP verified. You are logged in.' });
-  setTimeout(() => navigate('/dashboard'), 300);
+  if (data.requiresLogin) {
+    setMsg({ ok: true, text: 'OTP verified. Please log in to continue.' });
+    setTimeout(() => navigate('/join?tab=Login&msg=' + encodeURIComponent('Account verified. Please log in.')), 600);
+  } else {
+    setMsg({ ok: true, text: 'OTP verified. You are logged in.' });
+    setTimeout(() => navigate('/dashboard'), 300);
+  }
     } catch (err) {
       setMsg({ ok: false, text: err.message });
     } finally {

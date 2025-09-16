@@ -211,8 +211,8 @@ export const authService = {
       : looksLikeObjectId(identifier)
       ? { _id: identifier }
       : { $or: [{ email: identifier }, { username: identifier }] };
-    const pending = await PendingUser.findOne(query);
-    if (pending) {
+  const pending = await PendingUser.findOne(query);
+  if (pending) {
       if (!pending.otp || !pending.otpExpiresAt) throw new Error('No OTP pending');
       if (Date.now() > new Date(pending.otpExpiresAt).getTime()) throw new Error('OTP expired');
       const ok = await bcrypt.compare(String(otp), pending.otp);
@@ -252,7 +252,8 @@ export const authService = {
         </div>`;
       await mailer.sendMail({ from: process.env.CONTACT_FROM || process.env.SMTP_USER || 'no-reply@example.com', to: user.email || process.env.CONTACT_TO, subject, text, html });
       await pending.deleteOne();
-      return;
+      // Indicate client should ask user to login again (no cookie set here)
+      return { requiresLogin: true };
     }
     // If not pending, verify existing user re-verification flow
     const user = await User.findOne(query);
@@ -262,6 +263,7 @@ export const authService = {
     if (!ok) throw new Error('Invalid OTP');
     user.otp = undefined; user.otpExpiresAt = undefined; user.isVerified = true;
     await user.save();
+    return { requiresLogin: true };
   },
 
   async forgotPassword({ identifier }) {
